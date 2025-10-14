@@ -2,7 +2,6 @@ Ball b1, b2, b3, b4, b5, b6;
 
 void setup() {
   size(600,600);
-  
   ellipseMode(RADIUS);
   newcircle();
 }
@@ -18,31 +17,21 @@ void newcircle() {
 }
 
 void draw() {
-  background(255);
+  background(100);
   b1.update();
   b2.update();
   b3.update(); 
-  b4.update(); 
+  b4.update();
   b5.update();
-  b6.update(); 
+  b6.update();
   
   b1.bounce(b2);
   b1.bounce(b3);
-  b1.bounce(b5);
   b2.bounce(b3); 
-  b4.bounce(b5);
-  b4.bounce(b6);
-  b5.bounce(b6);
 }
 
-void mousePressed() {
-  b1= new Ball(mouseX, mouseY);
-}
-
-void keyPressed(){
-  if(key == '.') {
-    newcircle();
-  }
+void keyPressed() {
+  newcircle();
 }
 
 class Ball {
@@ -61,16 +50,6 @@ class Ball {
     this.dy = random(-3,3);
     this.r = random(10,50);
     this.c = color(int(random(256)),int(random(256)),int(random(256)),int(random(256)));    
-  }
-  
-  Ball(float x, float y) {
-      this.r = random(10,100);
-    this.x = x;
-    this.y = y;
-    this.dx = random(-3,3);
-    this.dy = random(-3,3);
-    this.r = random(10,50);
-    this.c = color(int(random(256)),int(random(256)),int(random(256)),int(random(256)));
   }
   
   void update() {
